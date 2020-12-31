@@ -1,3 +1,1 @@
-body{
-    background-color: white;
-}
+var inputElement = $("#city-input").val().trim();

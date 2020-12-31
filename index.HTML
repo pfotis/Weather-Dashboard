@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
     <!-- css style file -->
     <link rel="stylesheet" href="./assets/css/style.css"/>
     <title>Weather</title>
 </head>
 <body>
     <header><h1>Weather Dashboard</h1></header>
-    <div id="container"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3" id="city-list">
+                <div id="search-text">Search for a City:</div>
+                <input id="city-input" type="text">
+                <button id="search-button">S</button>
+                <br>
+            </div>
+            <div class="col-lg-7"></div>
+        </div>
+    </div>
     <!-- jQuery file -->
     <script src="./assets/javascript/script.js"></script>
 </body>

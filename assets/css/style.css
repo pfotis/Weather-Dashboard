@@ -1,18 +1,36 @@
-*{
+* {
+    box-sizing: border-box;
+    padding: 0;
     margin: 0;
 }
-body{
-    background-color: white;
-}
 
-header{
+header {
     width: 100%;
     height: 60px; 
     background-color: rgb(48, 45, 45);
 }
 
-h1{
+h1 {
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: auto;
+}
+
+.row {
+    width: 100%;
+}
+
+#city-list {
+    background-color: rgb(243, 233, 233);
+    float: left;
+}
+
+#search-button {
+    width: 30px;
+    background-color: rgb(10, 10, 228);
+    color: white;
+}
+
+#search-button:hover {
+    background-color: rgb(6, 6, 153);
 }

@@ -23,13 +23,24 @@ $(document).on("click", ".cityID",function(event){
 });
 
 function getDataOfWeather(place){
-    var  queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&appid=65288d77b29b169fdd8cf60a7f46c61d";
+    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&appid=65288d77b29b169fdd8cf60a7f46c61d";
     $.ajax({
-        url: queryURL,
+        url: forcastURL,
         method: "GET"
     }).then(function(response) {
-    console.log(response);
+        var forcastData = response;
+        console.log(forcastData);
+        var  uviURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + forcastData.city.coord.lat + "&lon=" + forcastData.city.coord.lon + "&exclude=hourly,daily&appid=65288d77b29b169fdd8cf60a7f46c61d";
+        $.ajax({
+            url: uviURL,
+            method: "GET"
+        }).then(function(response) {
+        var uviData = response;
+        console.log(uviData);
+        });
     });
+    
+   
 }
 
 function listOfPlaces(city) {
@@ -38,7 +49,6 @@ function listOfPlaces(city) {
     buttonCity.addClass("cityID");
     buttonCity.attr("nameCity", city);
     buttonCity.text(city);
-    console.log(city);
     $("#listOfCities").append(divCity);
     divCity.append(buttonCity);
 }

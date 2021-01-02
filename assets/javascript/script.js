@@ -1,3 +1,4 @@
+var key = "65288d77b29b169fdd8cf60a7f46c61d";
 var placesArray = [];
 
 var localSave = localStorage.getItem("Weather-Cities");
@@ -23,14 +24,14 @@ $(document).on("click", ".cityID",function(event){
 });
 
 function getDataOfWeather(place){
-    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&appid=65288d77b29b169fdd8cf60a7f46c61d";
+    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&appid=" + key;
     $.ajax({
         url: forcastURL,
         method: "GET"
     }).then(function(response) {
         var forcastData = response;
         console.log(forcastData);
-        var  uviURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + forcastData.city.coord.lat + "&lon=" + forcastData.city.coord.lon + "&exclude=hourly,daily&appid=65288d77b29b169fdd8cf60a7f46c61d";
+        var  uviURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + forcastData.city.coord.lat + "&lon=" + forcastData.city.coord.lon + "&exclude=hourly,daily&appid=" + key;
         $.ajax({
             url: uviURL,
             method: "GET"

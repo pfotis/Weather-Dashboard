@@ -89,7 +89,7 @@ img{
 
 .blueContainer{
     display:inline-block;
-    margin: 5px;
+    margin-right: 20px;
     background-color: rgb(82, 101, 209);
     width: 120px;
     border-radius: 5px;

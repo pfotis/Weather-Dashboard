@@ -1,5 +1,6 @@
 var key = "65288d77b29b169fdd8cf60a7f46c61d";
 var placesArray = [];
+var daysArray = [9,17,25,33,39];
 
 var localSave = localStorage.getItem("Weather-Cities");
 if(localSave !=null){
@@ -24,7 +25,7 @@ $(document).on("click", ".cityID",function(event){
 });
 
 function getDataOfWeather(place){
-    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&appid=" + key;
+    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&exclude=daily&appid=" + key;
     $.ajax({
         url: forcastURL,
         method: "GET"
@@ -41,8 +42,6 @@ function getDataOfWeather(place){
             $("#weatherToday").css("border","1px solid black");
             var cityH2 = $("<h2>");
             var date = (forcastData.list[4].dt_txt).split(" ");
-           
-            console.log(date[0]);
             cityH2.text(forcastData.city.name + " "+ "(" + date[0] + ")");
             $("#weatherToday").empty().append(cityH2);
             //var image = "/assets/images/icons/" + forcastData.list[4].weather[0].icon + ".png";               
@@ -63,12 +62,11 @@ function getDataOfWeather(place){
             $("#weatherToday").append(windDiv);
             space();
 
-
-
             var uviLabel = $("<div>");
             uviLabel.addClass("label");
             uviLabel.text("UV Index:");
             $("#weatherToday").append(uviLabel);
+
             var uviDiv = $("<div>");
             if(uviData.current.uvi < 2){
                 uviDiv.addClass("green");
@@ -84,10 +82,36 @@ function getDataOfWeather(place){
             }else if(uviData.current.uvi>10){
                 uviDiv.addClass("purple");
             }
-            
             uviDiv.text(uviData.current.uvi);
-           
             $("#weatherToday").append(uviDiv);
+
+            space();
+
+            var ForcastH2 = $("<h2>");
+            ForcastH2.text("5-Day Forcast:");
+            $("#forcast").empty().append(ForcastH2);
+            space();
+            
+            for(var i=0; i<daysArray.length; i++){
+                
+                var blueContainerDiv = $("<div>");
+                blueContainerDiv.addClass("blueContainer");
+                $("#forcast").append(blueContainerDiv);
+
+                var dateDiv = $("<div>");
+                dateDiv.addClass("date");
+                date = (forcastData.list[daysArray[i]].dt_txt).split(" ");
+                dateDiv.text(date[0]);
+                blueContainerDiv.append(dateDiv);
+
+                var tempDiv2 = $("<div>");
+                tempDiv2.text("Temp:"+forcastData.list[daysArray[i]].main.temp+"F");
+                blueContainerDiv.append(tempDiv2);
+        
+                var humDiv2 = $("<div>");
+                humDiv2.text("Humidity:"+forcastData.list[daysArray[i]].main.humidity+"%");
+                blueContainerDiv.append(humDiv2);
+            }
         });
     });
     

@@ -27,7 +27,7 @@ h1 {
 
 #search-button {
     width: 30px;
-    background-color: rgb(10, 10, 228);
+    background-color: rgb(82, 101, 209);
     color: white;
 }
 
@@ -46,7 +46,6 @@ h1 {
 }
 
 #weatherToday{
-    /*border: 1px solid black;*/
     width: 100%;
     padding: 20px;
     margin: 35px;
@@ -81,6 +80,20 @@ h1 {
 
 .purple{
     background-color: purple;
+}
+
+.blueContainer{
+    display:inline-block;
+    margin: 5px;
+    background-color: rgb(82, 101, 209);
+    width: 120px;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+.date{
+    font-weight: bold;
 }
 
 

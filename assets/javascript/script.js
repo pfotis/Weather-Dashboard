@@ -38,13 +38,14 @@ function getDataOfWeather(place){
         }).then(function(response) {
             var uviData = response;
 
-            console.log(forcastData);
             $("#weatherToday").css("border","1px solid black");
             var cityH2 = $("<h2>");
             var date = (forcastData.list[4].dt_txt).split(" ");
             cityH2.text(forcastData.city.name + " "+ "(" + date[0] + ")");
             $("#weatherToday").empty().append(cityH2);
-            //var image = "/assets/images/icons/" + forcastData.list[4].weather[0].icon + ".png";               
+            var image = "./assets/images/icons/" + forcastData.list[4].weather[0].icon + ".png";               
+            var imgAttach = $("<img>").attr("src", image);
+            cityH2.append(imgAttach);
             space();
 
             var tempDiv = $("<div>");
@@ -103,6 +104,10 @@ function getDataOfWeather(place){
                 date = (forcastData.list[daysArray[i]].dt_txt).split(" ");
                 dateDiv.text(date[0]);
                 blueContainerDiv.append(dateDiv);
+
+                var image = "./assets/images/icons/" + forcastData.list[daysArray[i]].weather[0].icon + ".png";               
+                var imgAttach2 = $("<img>").attr("src", image);
+                blueContainerDiv.append(imgAttach2);
 
                 var tempDiv2 = $("<div>");
                 tempDiv2.text("Temp:"+forcastData.list[daysArray[i]].main.temp+"F");

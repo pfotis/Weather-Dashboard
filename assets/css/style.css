@@ -34,3 +34,53 @@ h1 {
 #search-button:hover {
     background-color: rgb(6, 6, 153);
 }
+
+.cityID{
+    background-color: white;
+    width: 80%;
+    padding: 5px 0 5px 0;
+}
+
+#city-input{
+    margin-bottom: 20px;
+}
+
+#weatherToday{
+    /*border: 1px solid black;*/
+    width: 100%;
+    padding: 20px;
+    margin: 35px;
+}
+
+.label{
+    display:inline-block;
+}
+
+.green, .yellow, .orange, .red, .purple{
+    display:inline-block;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+
+.green{
+    background-color: green;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.red{
+    background-color: red;
+}
+
+.purple{
+    background-color: purple;
+}
+
+

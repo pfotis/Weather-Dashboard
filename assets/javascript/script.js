@@ -27,7 +27,7 @@ $(document).on("click", ".cityID",function(event){
 
 /* puul information from the API*/
 function getDataOfWeather(place){
-    var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&exclude=daily&appid=" + key;
+    var  forcastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + place + "&exclude=daily&appid=" + key;
     $.ajax({
         url: forcastURL,
         method: "GET"

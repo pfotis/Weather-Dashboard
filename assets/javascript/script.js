@@ -2,6 +2,7 @@ var key = "65288d77b29b169fdd8cf60a7f46c61d";
 var placesArray = [];
 var daysArray = [9,17,25,33,39];
 
+/* load from loacl storage not if this is the first time the user use the website*/
 var localSave = localStorage.getItem("Weather-Cities");
 if(localSave !=null){
     placesArray = JSON.parse(localSave);
@@ -24,6 +25,7 @@ $(document).on("click", ".cityID",function(event){
     getDataOfWeather(oldCity);
 });
 
+/* puul information from the API*/
 function getDataOfWeather(place){
     var  forcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&exclude=daily&appid=" + key;
     $.ajax({
@@ -37,7 +39,7 @@ function getDataOfWeather(place){
             method: "GET"
         }).then(function(response) {
             var uviData = response;
-
+        /* display the information at the screen */
             $("#weatherToday").css("border","1px solid black");
             var cityH2 = $("<h2>");
             var date = (forcastData.list[4].dt_txt).split(" ");
@@ -136,8 +138,4 @@ function listOfPlaces(city) {
 function space(){
     var spaceBr = $("<br>");
     $("#weatherToday").append(spaceBr);
-}
-
-function attachImage(icon){
-    
 }

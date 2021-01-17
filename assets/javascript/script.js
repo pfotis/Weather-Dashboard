@@ -9,6 +9,7 @@ if(localSave !=null){
     for(var i=0;i<placesArray.length;i++){
         listOfPlaces(placesArray[i]);
     }
+    getDataOfWeather(placesArray[0]);
 }
 
 $("#search-button").on("click", function(event) {
